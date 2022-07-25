@@ -1,0 +1,12 @@
+[Unit]
+Description = hello-world
+After = network.target
+
+[Service]
+WorkingDirectory = {{ repository_path }} 
+ExecStart = /usr/bin/env gunicorn app:app --bind 0.0.0.0:8000 --workers 3
+ExecReload = /bin/kill -s HUB $MAINPID
+ExecStop = /bin/kill -s TERM $MAINPID
+
+[Install]
+WantedBy=multi-user.target
