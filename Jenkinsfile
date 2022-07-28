@@ -2,7 +2,7 @@ pipeline {
   agent any
   
   environment {
-   ANSIBLE_PRIVATE_KEY=credentials('id_rsa') 
+   ANSIBLE_PRIVATE_KEY=credentials('5feabb1a-e90e-4a2f-adec-999dddacd02d') 
   }
   
   stages {
