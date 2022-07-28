@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'ansible-playbook -i hosts --private-key=$ANSIBLE_PRIVATE_KEY site.yml'
+        sh 'ansible-playbook -i hosts -u adam --private-key=$ANSIBLE_PRIVATE_KEY site.yml'
       }
     }
   }
