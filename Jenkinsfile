@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'ansible-playbook -i hosts -u adam --private-key=$ANSIBLE_PRIVATE_KEY site.yml'
+        ansiblePlaybook become: true, installation: 'ansible-adam', inventory: 'hosts', playbook: 'site.yml', vaultCredentialsId: 'azure_vm_private_key'
       }
     }
   }
